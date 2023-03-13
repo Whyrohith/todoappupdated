@@ -44,11 +44,16 @@ class User extends Authenticatable
 
     public function todos()
     {
-        return $this->hasMany(Todo::class);
+        return $this->hasMany(Todo::class)->orderBy('created_at', 'DESC');
     }
 
     public function todoprofile()
     {
         return $this->hasOne(TodoProfile::class);
+    }
+
+    public function todogroups()
+    {
+        return $this->hasMany(TodoGroup::class)->orderBy('created_at','DESC');
     }
 }

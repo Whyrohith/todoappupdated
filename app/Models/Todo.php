@@ -13,4 +13,15 @@ class Todo extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function isCompleted()
+    {
+        return $this->completed_at != null;
+    }
+
+    public function todogroup()
+    {
+        return $this->belongsTo(TodoGroup::class);
+    }   
+  
 }

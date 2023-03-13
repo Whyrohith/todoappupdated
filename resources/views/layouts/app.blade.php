@@ -18,14 +18,21 @@
         body {
             font-family: 'Nunito';
         }
+        .badge-green 
+        {
+            background-color: green;
+            color: white;
+
+        }
     </style>
+
 </head>
 
 <body>
 
 <nav class="navbar navbar-light bg-light">
     <div class="container">
-        <a href="/"><span class="navbar-brand mb-0 h1">Todo</span></a>
+        <a href= "/"><span class="navbar-brand mb-0 h1">Todo</span></a>
     </div>
      
 </nav>

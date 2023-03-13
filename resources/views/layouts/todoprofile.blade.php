@@ -26,10 +26,60 @@
 <nav class="navbar navbar-light bg-light">
     <div class="container">
         <a href="/"><span class="navbar-brand mb-0 h1">Todo</span></a>
-        <a href="/p/create"><span class="btn btn-primary">Create Todo</span></a>
+        <a href ="/t/create" class = "btn btn-primary">Create Group</a>
+        <a href="/p/create/{{$user->id}}"><span class="btn btn-primary">Create Todo</span></a>
+         @if(session()->has('success'))
+    <div class="alert alert-success">
+
+        {{ session()->get('success') }}
+
+    </div>
+@endif
+    
+    </div>
+ 
+    <div class ='navbar navbar-light bg-ligh'>
+    <nav x-data="{ open: false }" class="">
+    <!-- Primary Navigation Menu -->
+    <div class="pt-2">
+           <!-- Settings Dropdown -->
+            <div class="pt-2">
+                <button class="">
+                    <div>{{ Auth::user()->name }}</div>
+                </button>                       
+                <button class="">
+                    <div>{{ $user->todos->count() }} Tasks </div>
+                 </button>
+                 <div> {{ Auth::user()->email }}</div>
+
+                    <!-- Authentication -->
+            <x-slot name="content"> 
+                <form method="POST" action="{{ route('logout') }}">
+                         @csrf
+                     <x-dropdown-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                        {{ __('Log Out') }}           
+                        </x-dropdown-link>
+                    </form>
+            </x-slot>
+        </div>
+    <!-- Responsive Navigation Menu -->
+        <!-- Responsive Settings Options -->
+        <div class="">
+            <!-- Authentication -->
+            <form method="POST" action="{{ route('logout') }}">
+                 @csrf
+                    <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                    </x-responsive-nav-link>
+                </form>
+        </div>
+    </nav>
     </div>
 </nav>
-
 <div class="container">
 
     @yield('content')
