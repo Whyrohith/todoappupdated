@@ -17,6 +17,7 @@
             <textarea class="form-control" name="taskdescription" rows="3">{{ old('taskdescription') ?? $todo->TaskDescription}}</textarea>
         </div>
         <div class="form-group m-3">Group id:<select name ="todo_group_id">
+        <option value="">--Please choose an option--</option>
         @foreach($user->todogroups as $todogroup)
             <option value="{{ $todogroup->id }}"
                 @if ($todogroup->id == $todo->todo_group_id)

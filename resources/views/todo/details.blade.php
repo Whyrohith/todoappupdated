@@ -14,7 +14,7 @@
             <h5 class="card-title"> Task Name: {{ $todo->TaskName }} </h5>
             <p class="card-text"> Task Description: {{ $todo->TaskDescription ?? 'N/A' }} </p>
             <a href="/p/{{$todo->id}}/{{$user->id}}/edit"><span class="btn btn-primary">Edit</span></a>
-            <a href="/delete/{{$todo->id}}"><span class="btn btn-danger">Delete</span></a>
+            <a href="/{{$user->id}}/delete/{{$todo->id}}"><span class="btn btn-danger">Delete</span></a>
         </div>
 
 @endsection

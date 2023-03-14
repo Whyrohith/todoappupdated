@@ -22,7 +22,7 @@
                     @endif
                     </div>
                      <a href ="/p/{{$todo->id}}/{{$user->id}}" style = "color: cornflowerblue"> {{ $todo->TaskName }}</a>
-                    <form action="/p/complete/{{$todo->id}}" method="POST">
+                    <form action="/{{$user->id}}/p/complete/{{$todo->id}}" method="POST">
                         @method('PATCH')
                         @csrf
                         @if(!$todo->isCompleted())

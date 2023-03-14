@@ -51,7 +51,7 @@ class TodoGroupController extends Controller
             'name' => 'required',
         ]);
 
-        $todogroup->update($data);
+        auth()->user()->todogroups()->update($data);
 
         return redirect('/profile/'.auth()->user()->id);
     }

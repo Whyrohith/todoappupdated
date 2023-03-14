@@ -81,7 +81,7 @@ class TodoController extends Controller
     }
 
 
-    public function delete(Todo $todo , User $user)
+    public function delete(User $user , Todo $todo)
     {
         $todo->delete();
         session()->flash('success', 'Todo deleted succesfully');
